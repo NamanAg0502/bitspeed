@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+# Chat Flow Diagram Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Chat Flow Diagram Builder is a web application that empowers users to create interactive chat flow diagrams effortlessly. Built using React, ReactFlow, and Tailwind CSS, this project offers a seamless user experience for designing and visualizing chat flows.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Canvas**: Users can seamlessly interact with a canvas area to drag and drop nodes, connect them, and organize the chat flow diagram according to their preferences.
+- **Diverse Node Types**: The application supports various node types, including chat nodes, user input nodes, and response nodes, enabling users to construct comprehensive chat flows.
+- **Node Customization**: Each node can be customized by editing its label or message content, allowing for personalized chat flow representation.
+- **Effortless Node Connections**: Nodes can be effortlessly connected by dragging from one node's handle to another node's handle, providing an intuitive way to establish connections between different parts of the chat flow.
+- **Informative Sidebar**: The sidebar provides users with the ability to add new nodes to the canvas and offers clear instructions on how to interact with the flow diagram, ensuring a smooth user experience.
+- **Robust Error Handling**: The application includes robust error handling mechanisms to ensure the validity of the flow diagram. If all nodes are not properly connected, an error alert is displayed, preventing users from saving the flow until the issue is resolved.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To run the project locally, follow these simple steps:
 
-- Configure the top-level `parserOptions` property like this:
+1. **Clone the Repository**:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/your-username/chat-flow-diagram-builder.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. **Navigate to the Project Directory**:
+
+```bash
+cd chat-flow-diagram-builder
+```
+
+3. **Install Dependencies**:
+
+```bash
+npm install
+```
+
+4. **Start the Development Server**:
+
+```bash
+npm run dev
+```
+
+5. **Open the Application in Your Browser**:
+
+```
+Navigate to http://localhost:3000
+```
+
+## Technologies Used
+
+- [React](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [ReactFlow](https://reactflow.dev/): A library for building node-based diagrams and flow charts.
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom user interfaces.
+- [Lucide React](https://lucide.dev/): A lightweight icon library for React applications.
