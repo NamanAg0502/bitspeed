@@ -85,6 +85,37 @@ const FlowDiagram: React.FC = () => {
     unselectNode();
   }, [unselectNode]);
 
+  const validateFlow = useCallback(() => {
+    // Check if all nodes are connected
+    const isConnected = nodes.every((node) => {
+      switch (node.type) {
+        case 'chat-node':
+          // Chat nodes should have at least one outgoing edge
+          return edges.some((edge) => edge.source === node.id);
+        case 'response-node':
+          // Response nodes should have at least one incoming edge
+          return edges.some((edge) => edge.target === node.id);
+        case 'user-input-node':
+          // User input nodes should have at least one incoming and one outgoing edge
+          return (
+            edges.some((edge) => edge.target === node.id) &&
+            edges.some((edge) => edge.source === node.id)
+          );
+        default:
+          return false;
+      }
+    });
+    return isConnected;
+  }, [nodes, edges]);
+
+  const handleSaveFlow = useCallback(() => {
+    if (validateFlow()) {
+      alert('Flow saved successfully!');
+    } else {
+      alert('Cannot save flow. All nodes must be connected.');
+    }
+  }, [validateFlow]);
+
   // Memoizes the ReactFlow instance to avoid re-rendering when dependencies haven't changed
   const reactFlowInstance = useMemo(
     () => (
@@ -121,8 +152,16 @@ const FlowDiagram: React.FC = () => {
   return (
     <div className="h-full w-full flex">
       <div className="w-4/5">{reactFlowInstance}</div>
-      <div className="w-1/5">
-        <Sidebar onAddNode={handleAddNode} />
+      <div className="flex flex-col w-1/5">
+        <div className="w-full flex-1">
+          <Sidebar onAddNode={handleAddNode} />
+        </div>
+        <button
+          onClick={handleSaveFlow}
+          className="bg-green-500 text-white rounded-md px-4 py-2 my-4 mx-auto block w-4/5"
+        >
+          Save Flow
+        </button>
       </div>
     </div>
   );
