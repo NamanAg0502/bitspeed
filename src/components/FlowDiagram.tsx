@@ -120,9 +120,7 @@ const FlowDiagram: React.FC = () => {
 
   return (
     <div className="h-full w-full flex">
-      {/* Main diagram area taking up 4/5 of the width */}
       <div className="w-4/5">{reactFlowInstance}</div>
-      {/* Sidebar area taking up 1/5 of the width */}
       <div className="w-1/5">
         <Sidebar onAddNode={handleAddNode} />
       </div>
